@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mathsLOGY</title>
+  <link rel="stylesheet" href="/css/footer.css">
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: rgb(232, 229, 229);
+
+    }
+    .container {
+      margin: 10px;
+
+    }
+    .header {
+      display: flex;
+    }
+    .header img {
+      height: 40px;
+      margin: 0 0 0 10px;
+      border: 2px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .header h3 {
+      text-align: center;
+      flex-grow: 1;
+      margin-top: 10px;
+    }
+    li {
+      display: flex;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 10px 10px 10px 20px;
+      margin: 10px;
+      background-color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+    li a {
+      text-decoration: none;
+      color: #000;
+      font-family: t;
+    }
+    .footer {
+      background-color: rgb(232, 229, 229);
+      border: 2px solid #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/image/go back.png" onclick="window.history.back();">
+      <h3>Select year</h3>
+    </div>
+    <ul class="year">
+      <a href="/subjects/maths/maths-mcq.html"><li>MULTIPLE CHOICE QUESTIONS [MCQ]</li>
+      <a href="/subjects/maths/maths-thory.html"><li>THOERY QUESTIONS</li>
+      </a>
+    </ul>
+  </div>
+  
+  <div class="footer">
+    <a href="/home.html"><img class="home-button" src="/image/home-icon.png" alt=""></a>
+    <a href=""><img class="setting-button" src="/image/setting-icon.png" alt=""></a>
+  </div>
+</body>
+</html>

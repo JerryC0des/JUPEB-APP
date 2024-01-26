@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-image: url(/image/backgroundC.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .container {
+      width: 70vw;
+      margin:  100px auto;
+      text-align: center;
+    }
+    .content {
+      margin: 20px auto;
+    }
+    input {
+      margin: 20px 0;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      width: 70vw;
+    }
+    button {
+      background-color: #C2FBD7;
+      border-radius: 10px;
+      border-width: 0;
+      box-shadow: rgba(255, 255, 255, 0.04) 0 0 1px 0, rgba(245, 241, 241, 0.1) 0 3px 4px 0;
+      color: #008000;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 1em;
+      height: 50px;
+      padding: 0 25px;
+      transition: all 200ms;
+      font-weight: bold;
+      margin: 10px auto;
+    }
+    input:focus {
+      outline: 2px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"> 
+    <div class="content">
+      <input type="text" id="usernameInput" placeholder="Enter your username" required>
+      <a href="/home.html"><button class="btn" onclick="saveUsername()">Continue</button></a>
+
+    </div>
+  </div>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>

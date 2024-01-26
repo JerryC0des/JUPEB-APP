@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2014</title>
+    <link rel="stylesheet" href="/css/subjects/questions.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/image/go back.png" onclick="window.history.back();">
+    </div>
+    <div class="exam-content">
+      <div class="subject-header">
+        <p>JOINT UNIVERSITIES PRELIMINARY EXAMINATIONS BOARD </p>
+        <p> 2014 EXAMINATIONS </p>
+        <p>BIOLOGY: SCI-J152 </p>
+      </div>
+      <p>MULTIPLE CHOICE QUESTIONS Answer ALL Questions</p>
+      </button>
+      <p id="questionIndex"></p>
+      <div id="questionDiv"></div>
+      <div id="optionDiv"></div>
+      <div class="btns">
+        <button id="prevbtn" onclick="prevQuestion()">Previous</button>
+        <button id="nextbtn" onclick="nextQuestion()">Next</button>
+        <button id="submitbtn" onclick="clearContainerContent();">SUBMIT</button>
+      </div>
+      
+      <div id="questionsButton"></div>
+    </div>
+    
+    <div id="scoreDisplay"></div>
+    <div id="hiddenDiv"></div>
+  </div>
+
+  <div id="result-container">
+    <div class="mcq-container">
+        <div class="mcq-">
+        <h2>MCQ Result</h2>
+        <div class="display-result">
+            <div class="chart-div">
+                <canvas id="resultChart" width="310" height="200"></canvas>
+            </div>
+        </div>
+        </div>
+        <div class="scoree">
+            <div id="result"></div>
+            <a class="btn revise " onclick="reviewQuestions();">Revise MCQ</a>
+        </div>
+    </div>
+  </div>
+
+    <div class="display-review">
+        <p id="resultIndex"></p>
+        <div id="rQuestionDiv"></div>
+        <div id="resultOptionDiv"></div>
+    </div>
+
+
+  <div class="footer">
+    <a href="/home.html"><img class="home-button" src="/image/home-icon.png" alt=""></a>
+    <a href=""><img class="setting-button" src="/image/setting-icon.png" alt=""></a>
+  </div>
+
+  <!-- <br><br><br><br> -->
+
+
+  <script>
+            var exam = {
+          // Your exam questions here...
+          "questions": [
+              {
+                  "question": "Who is the current president of the United states?",
+                  "options": ["Muhammedu Buhari", "Vladimir Putin", "Joe Biden", "ngonye uzoma"],
+                  "answerPosition": 2,
+                  "explanation": "Joe Biden is the current President of the United States."
+              },
+              {
+                  "question": "How many countries are in the world?",
+                  "options": [249, 195, 300],
+                  "answerPosition": 1,
+                  "explanation": "There are approximately 195 countries in the world."
+              },
+              {
+                  "question": "How many countries are in the world?",
+                  "options": [249, 195, 300],
+                  "answerPosition": 1,
+                  "explanation": "This is an explanation for the third question."
+              },
+              // Add more questions with explanations...
+          ]
+      };
+
+      var questionDiv = document.getElementById("questionDiv");
+    var optionDiv = document.getElementById("optionDiv");
+    var questionsButton = document.getElementById("questionsButton");
+    var answers = [];
+    var currentQuestion = 0;
+
+    function showCbt() {
+        questionsButton.innerHTML = "";
+        for (var i = 0; i < exam.questions.length; i++) {
+            questionsButton.innerHTML += '<button class="qbtn" onclick="showQuestion(' + i + ')">' + (i + 1) + '</button>';
+            answers[i] = -1;
+        }
+        showQuestion(0);
+    }
+
+    function startExam() {
+        showCbt();
+        document.getElementById("questionIndex").innerText = "Question " + (currentQuestion + 1);
+        document.getElementById("submitbtn").style.display = "inline-block";
+        document.getElementById("prevbtn").style.display = "inline-block";
+        document.getElementById("nextbtn").style.display = "inline-block";
+        document.getElementById("result-container").style.display = "none";
+    }
+
+    function showQuestion(questionNumber) {
+        // Get references to the HTML elements where the question and options will be displayed
+        questionDiv.innerHTML = exam.questions[questionNumber].question;
+        optionDiv.innerHTML = "";
+
+        // Array to represent the option letters
+        const optionLetters = ['A', 'B', 'C', 'D'];
+
+        // Loop through the options of the current question
+        for (var i = 0; i < exam.questions[questionNumber].options.length; i++) {
+            // Get the current option letter
+            const optionLetter = optionLetters[i];
+
+            // Add HTML for the current option to the optionDiv
+            optionDiv.innerHTML += `
+            <label class="radio-label">
+                ${optionLetter}. 
+                <input type="radio" onclick="selectAnswer(${questionNumber}, ${i})" name="questionOptions"/>
+                ${exam.questions[questionNumber].options[i]}
+            </label><br>`;
+        }
+
+        // Update the displayed question index
+        document.getElementById("questionIndex").innerText = "Question " + (questionNumber + 1);
+
+        // Get references to all question buttons
+        const questionButtons = document.querySelectorAll("#questionsButton > button");
+
+        // Remove any styling classes from question buttons
+        questionButtons.forEach(button => button.classList.remove("currentQuestion", "answeredQuestion"));
+
+        // Add styling classes based on whether the question has been answered or is the current question
+        if (answers[questionNumber] !== -1) {
+            questionButtons[questionNumber].classList.add("answeredQuestion");
+        }
+        questionButtons[questionNumber].classList.add("currentQuestion");
+
+        // Update the currentQuestion variable
+        currentQuestion = questionNumber;
+        }
+
+
+    function selectAnswer(questionNumber, optionNumber) {
+        answers[questionNumber] = optionNumber;
+        document.querySelectorAll("#questionsButton > button")[questionNumber].classList.add("blueHightlight");
+        saveUserAnswer(questionNumber, optionNumber);
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 0) {
+            showQuestion(currentQuestion - 1);
+        }
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < exam.questions.length - 1) {
+            showQuestion(currentQuestion + 1);
+        }
+    }
+
+
+    function clearContainerContent() {
+        var container = document.querySelector('.container');
+  
+        if (container) {
+            container.innerHTML = '';
+        } else {
+            console.error('Container not found. Please check the class name.');
+        }
+  
+        document.getElementById("result-container").style.display = "block";
+        displayResult();
+    }
+
+    function displayResult() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let score = urlParams.get('score');
+
+         score = 0;
+
+        for (var i = 0; i < exam.questions.length; i++) {
+            if (answers[i] == exam.questions[i].answerPosition) {
+                score++;
+            }
+        }
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `<p>Your score is: ${score}/${exam.questions.length}</p>`;
+
+        // Create a pie chart
+        var ctx = document.getElementById('resultChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Correct Answers', 'Incorrect Answers'],
+            datasets: [{
+        data: [score, exam.questions.length - score], 
+            backgroundColor: [
+                'rgba(0, 158, 0, 0.8)',
+                'rgba(255, 0, 0, 0.8)',
+            ],
+            borderColor: [
+                'rgba(0, 128, 0, 1)',
+                'rgba(255, 0, 0, 1)',
+            ],
+            borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false, // Adjust as needed
+            maintainAspectRatio: false, // Adjust as needed
+        }
+        });
+    }
+
+
+    //   function redirectToJupebPage() {
+    //     // Save user answers before redirecting
+    //     saveUserAnswersToLocalStorage();
+    //     window.location.href = "/study/bio/2014-rev.html";
+    //   }
+
+      function reviewQuestions() {
+      // Get a reference to the HTML element where the results will be displayed
+      var resultDisplayDiv = document.querySelector(".display-result");
+      resultDisplayDiv.innerHTML = "";
+
+      // Array to represent the option letters
+      const optionLetters = ['A', 'B', 'C', 'D'];
+
+      // Loop through each question in the exam
+      for (var i = 0; i < exam.questions.length; i++) {
+
+        // Get user's answer, correct answer position, and question text
+        const userAnswer = answers[i];
+        const correctAnswerPosition = exam.questions[i].answerPosition;
+        const questionText = exam.questions[i].question;
+        const explanation = exam.questions[i].explanation;
+
+        // Display the question and options
+        resultDisplayDiv.innerHTML += `
+        <div>
+            <div class="questionIndex"> Question ${i + 1}</div> 
+            <div class="questiondiv">${questionText}</div>
+        </div>`;
+
+        // Loop through each option of the current question
+        for (var j = 0; j < exam.questions[i].options.length; j++) {
+          // Get the option letter and text
+          const optionLetter = optionLetters[j];
+          const optionText = exam.questions[i].options[j];
+
+          // Build HTML for displaying the option
+          resultDisplayDiv.innerHTML += `
+            <label>
+              ${optionLetter}. 
+              <input type="radio" disabled ${userAnswer === j ? 'checked' : ''} /> 
+              ${userAnswer === j ? '<span style="color: red;">' : ''}
+              ${correctAnswerPosition === j ? '<span style="color: green;">' : ''}
+              ${optionText}
+              ${userAnswer === j || correctAnswerPosition === j ? '</span>' : ''}
+            </label><br>`;
+        }
+
+        // Highlight correct and incorrect answers
+        const correctAnswerLetter = optionLetters[correctAnswerPosition];
+        const userAnswerLetter = optionLetters[userAnswer];
+        resultDisplayDiv.innerHTML += `
+          <div class="explanationDiv">${explanation}</div>
+          <div class="myAns">Correct Answer: ${correctAnswerLetter}.</div>
+          <hr>`;
+      }
+    }
+
+    startExam();
+    </script>
+    <script src="/js/chart.js"></script>
+</body>
+</html>

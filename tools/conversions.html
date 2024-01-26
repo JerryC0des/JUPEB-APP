@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversions</title>
+  <link rel="stylesheet" href="/css/footer.css">
+  <style>
+       body {
+      font-family: Arial, sans-serif;
+      /* margin: 20px; */
+    }
+    .header {
+      display: flex;
+      text-align: center;
+    }
+    .header img {
+      height: 40px;
+      margin: 5px;
+      border: 2px solid #000000;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      background-color: #ddd;
+    }
+    h1, h2 {
+      line-height: 1.2;
+    }
+    h1 {
+      margin: 60px 5px 20px 0;
+    }
+    h2 {
+      margin: 20px 0;
+    }
+    p {
+      margin: 20px 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .container {
+      margin: 20px;
+      line-height: 1.6;
+    }
+    ol, ul {
+      margin: 0 30px ;
+    } 
+    .Length {
+      margin-top: 50px;
+    }
+    .footer {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="/image/go back.png" onclick="window.history.back();">
+  </div>
+  <div class="container">
+    <div class="content">
+      <h2 class="Length">Length Conversions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Meter (m)</td>
+            <td>Centimeter (cm)</td>
+            <td>100 cm = 1 m</td>
+          </tr>
+          <tr>
+            <td>Kilometer (km)</td>
+            <td>Meter (m)</td>
+            <td>1000 m = 1 km</td>
+          </tr>
+          <tr>
+            <td>Inch (in)</td>
+            <td>Centimeter (cm)</td>
+            <td>2.54 cm = 1 in</td>
+          </tr>
+          <tr>
+            <td>Foot (ft)</td>
+            <td>Meter (m)</td>
+            <td>0.3048 m = 1 ft</td>
+          </tr>
+          <tr>
+            <td>Mile (mi)</td>
+            <td>Kilometer (km)</td>
+            <td>1.60934 km = 1 mi</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Mass Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kilogram (kg)</td>
+            <td>Gram (g)</td>
+            <td>1000 g = 1 kg</td>
+          </tr>
+          <tr>
+            <td>Gram (g)</td>
+            <td>Kilogram (kg)</td>
+            <td>0.001 kg = 1 g</td>
+          </tr>
+          <tr>
+            <td>Pound (lb)</td>
+            <td>Kilogram (kg)</td>
+            <td>0.453592 kg = 1 lb</td>
+          </tr>
+          <tr>
+            <td>Ounce (oz)</td>
+            <td>Gram (g)</td>
+            <td>28.3495 g = 1 oz</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Volume Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Liter (L)</td>
+            <td>Milliliter (mL)</td>
+            <td>1000 mL = 1 L</td>
+          </tr>
+          <tr>
+            <td>Cubic Meter (m³)</td>
+            <td>Liter (L)</td>
+            <td>1000 L = 1 m³</td>
+          </tr>
+          <tr>
+            <td>Gallon (gal)</td>
+            <td>Liter (L)</td>
+            <td>3.78541 L = 1 gal</td>
+          </tr>
+          <tr>
+            <td>Cubic Inch (in³)</td>
+            <td>Milliliter (mL)</td>
+            <td>16.3871 mL = 1 in³</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Area Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Square Meter (m²)</td>
+            <td>Square Centimeter (cm²)</td>
+            <td>10,000 cm² = 1 m²</td>
+          </tr>
+          <tr>
+            <td>Hectare (ha)</td>
+            <td>Square Meter (m²)</td>
+            <td>10,000 m² = 1 ha</td>
+          </tr>
+          <tr>
+            <td>Square Kilometer (km²)</td>
+            <td>Square Meter (m²)</td>
+            <td>1,000,000 m² = 1 km²</td>
+          </tr>
+          <tr>
+            <td>Acre</td>
+            <td>Square Meter (m²)</td>
+            <td>4046.86 m² = 1 acre</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Work and Energy Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Joule (J)</td>
+            <td>Newton Meter (N·m)</td>
+            <td>1 J = 1 N·m</td>
+          </tr>
+          <tr>
+            <td>Kilojoule (kJ)</td>
+            <td>Joule (J)</td>
+            <td>1000 J = 1 kJ</td>
+          </tr>
+          <tr>
+            <td>Calorie (cal)</td>
+            <td>Joule (J)</td>
+            <td>4.184 J = 1 cal</td>
+          </tr>
+          <tr>
+            <td>Kilowatt-hour (kWh)</td>
+            <td>Kilojoule (kJ)</td>
+            <td>3600 kJ = 1 kWh</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Power Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Watt (W)</td>
+            <td>Joule per Second (J/s)</td>
+            <td>1 W = 1 J/s</td>
+          </tr>
+          <tr>
+            <td>Kilowatt (kW)</td>
+            <td>Watt (W)</td>
+            <td>1000 W = 1 kW</td>
+          </tr>
+          <tr>
+            <td>Horsepower (hp)</td>
+            <td>Watt (W)</td>
+            <td>745.7 W = 1 hp</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Pressure Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pascal (Pa)</td>
+            <td>Newton per Square Meter (N/m²)</td>
+            <td>1 Pa = 1 N/m²</td>
+          </tr>
+          <tr>
+            <td>Bar</td>
+            <td>Pascal (Pa)</td>
+            <td>100,000 Pa = 1 bar</td>
+          </tr>
+          <tr>
+            <td>Atmosphere (atm)</td>
+            <td>Pascal (Pa)</td>
+            <td>101,325 Pa = 1 atm</td>
+          </tr>
+          <tr>
+            <td>Pound-force per Square Inch (psi)</td>
+            <td>Pascal (Pa)</td>
+            <td>6894.76 Pa = 1 psi</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Temperature Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Conversion</th>
+            <th>Formula</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Celsius to Fahrenheit</td>
+            <td>°F = (°C × 9/5) + 32</td>
+          </tr>
+          <tr>
+            <td>Fahrenheit to Celsius</td>
+            <td>°C = (°F − 32) × 5/9</td>
+          </tr>
+          <tr>
+            <td>Celsius to Kelvin</td>
+            <td>K = °C + 273.15</td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Time Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Minute (min)</td>
+            <td>Second (s)</td>
+            <td>60 s = 1 min</td>
+          </tr>
+          <tr>
+            <td>Hour (hr)</td>
+            <td>Minute (min)</td>
+            <td>60 min = 1 hr</td>
+          </tr>
+          <tr>
+            <td>Day</td>
+            <td>Hour (hr)</td>
+            <td>24 hr = 1 day</td>
+          </tr>
+          <tr>
+            <td>Week</td>
+            <td>Day</td>
+            <td>7 days = 1 week</td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td>Day</td>
+            <td>365.25 days = 1 year (average)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Angle Conversions</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Conversion Factor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Degree (°)</td>
+            <td>Radian (rad)</td>
+            <td>π/180 rad = 1°</td>
+          </tr>
+          <tr>
+            <td>Radian (rad)</td>
+            <td>Degree (°)</td>
+            <td>180/π° = 1 rad</td>
+          </tr>
+        </tbody>
+      </table>  
+
+      <h2>Greek Alphabet</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Uppercase</th>
+            <th>Lowercase</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Alpha</td>
+            <td>Α</td>
+            <td>α</td>
+          </tr>
+          <tr>
+            <td>Beta</td>
+            <td>Β</td>
+            <td>β</td>
+          </tr>
+          <tr>
+            <td>Gamma</td>
+            <td>Γ</td>
+            <td>γ</td>
+          </tr>
+          <tr>
+            <td>Delta</td>
+            <td>Δ</td>
+            <td>δ</td>
+          </tr>
+          <tr>
+            <td>Epsilon</td>
+            <td>Ε</td>
+            <td>ε</td>
+          </tr>
+          <tr>
+            <td>Zeta</td>
+            <td>Ζ</td>
+            <td>ζ</td>
+          </tr>
+          <tr>
+            <td>Eta</td>
+            <td>Η</td>
+            <td>η</td>
+          </tr>
+          <tr>
+            <td>Theta</td>
+            <td>Θ</td>
+            <td>θ</td>
+          </tr>
+          <tr>
+            <td>Iota</td>
+            <td>Ι</td>
+            <td>ι</td>
+          </tr>
+          <tr>
+            <td>Kappa</td>
+            <td>Κ</td>
+            <td>κ</td>
+          </tr>
+          <tr>
+            <td>Lambda</td>
+            <td>Λ</td>
+            <td>λ</td>
+          </tr>
+          <tr>
+            <td>Mu</td>
+            <td>Μ</td>
+            <td>μ</td>
+          </tr>
+          <tr>
+            <td>Nu</td>
+            <td>Ν</td>
+            <td>ν</td>
+          </tr>
+          <tr>
+            <td>Xi</td>
+            <td>Ξ</td>
+            <td>ξ</td>
+          </tr>
+          <tr>
+            <td>Omikron</td>
+            <td>Ο</td>
+            <td>ο</td>
+          </tr>
+          <tr>
+            <td>Pi</td>
+            <td>Π</td>
+            <td>π</td>
+          </tr>
+          <tr>
+            <td>Rho</td>
+            <td>Ρ</td>
+            <td>ρ</td>
+          </tr>
+          <tr>
+            <td>Sigma</td>
+            <td>Σ</td>
+            <td>σ/ς</td>
+          </tr>
+          <tr>
+            <td>Tau</td>
+            <td>Τ</td>
+            <td>τ</td>
+          </tr>
+          <tr>
+            <td>Upsilon</td>
+            <td>Υ</td>
+            <td>υ</td>
+          </tr>
+          <tr>
+            <td>Phi</td>
+            <td>Φ</td>
+            <td>φ</td>
+          </tr>
+          <tr>
+            <td>Chi</td>
+            <td>Χ</td>
+            <td>χ</td>
+          </tr>
+          <tr>
+            <td>Psi</td>
+            <td>Ψ</td>
+            <td>ψ</td>
+          </tr>
+          <tr>
+            <td>Omega</td>
+            <td>Ω</td>
+            <td>ω</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br><br><br><br><br>
+  <div class="footer">
+    <a href="/home.html"><img class="home-button" src="/image/home-icon.png" alt=""></a>
+    <a href=""><img class="setting-button" src="/image/setting-icon.png" alt=""></a>
+  </div>
+</body>
+</html>

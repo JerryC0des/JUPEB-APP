@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2015</title>
+    <link rel="stylesheet" href="/css/subjects/questions.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="/image/go back.png" onclick="window.history.back();">
+    </div>
+    <div class="exam-content">
+      <div class="subject-header">
+        <p>JOINT UNIVERSITIES PRELIMINARY EXAMINATIONS BOARD </p>
+        <p> 2015 EXAMINATIONS </p>
+        <p>BIOLOGY: SCI-J152 </p>
+      </div>
+      <p>MULTIPLE CHOICE QUESTIONS Answer ALL Questions</p>
+      <p id="questionIndex"></p>
+      <div id="questionDiv"></div>
+      <div id="optionDiv"></div>
+      <div class="explanationDiv" id="explanationDiv"></div> <!-- Added div for explanations -->
+
+      <div class="btns">
+        <button id="prevbtn" onclick="prevQuestion()">Previous</button>
+        <button id="nextbtn" onclick="nextQuestion()">Next</button>
+        <button id="submitbtn" onclick="submitExam()">SUBMIT</button>
+      </div>
+  
+      <div id="questionsButton"></div>
+    </div>
+    
+    <div id="scoreDisplay"></div>
+    <div id="hiddenDiv"></div>
+  </div>
+
+  <div class="footer">
+    <a href="/home.html"><img class="home-button" src="/image/home-icon.png" alt=""></a>
+    <a href=""><img class="setting-button" src="/image/setting-icon.png" alt=""></a>
+  </div>
+
+  <script>
+      var exam = {
+          // Your exam questions here...
+          "questions": [
+              {
+                  "question": "Who is the current president of the United states?",
+                  "options": ["Muhammedu Buhari", "Vladimir Putin", "Joe Biden", "ngonye uzoma"],
+                  "answerPosition": 2,
+                  "explanation": "Joe Biden is the current President of the United States."
+              },
+              {
+                  "question": "How many countries are in the world?",
+                  "options": [249, 195, 300],
+                  "answerPosition": 1,
+                  "explanation": "There are approximately 195 countries in the world."
+              },
+              {
+                  "question": "How many countries are in the world?",
+                  "options": [249, 195, 300],
+                  "answerPosition": 1,
+                  "explanation": "This is an explanation for the third question."
+              },
+              // Add more questions with explanations...
+          ]
+      };
+
+      var questionDiv = document.getElementById("questionDiv");
+      var optionDiv = document.getElementById("optionDiv");
+      var questionsButton = document.getElementById("questionsButton");
+      var answers = [];
+      var currentQuestion = 0;
+
+      function showCbt() {
+          questionsButton.innerHTML = "";
+          for (var i = 0; i < exam.questions.length; i++) {
+              questionsButton.innerHTML += '<button class="qbtn" onclick="showQuestion(' + i + ')">' + (i + 1) + '</button>';
+              answers[i] = -1;
+          }
+          showQuestion(0);
+      }
+
+      function startExam() {
+          showCbt();
+          document.getElementById("questionIndex").innerText = "Question " + (currentQuestion + 1);
+          document.getElementById("submitbtn").style.display = "inline-block";
+          document.getElementById("prevbtn").style.display = "inline-block";
+          document.getElementById("nextbtn").style.display = "inline-block";
+      }
+
+      function showQuestion(questionNumber) {
+        questionDiv.innerHTML = exam.questions[questionNumber].question;
+        optionDiv.innerHTML = "";
+        document.getElementById("explanationDiv").innerText = ""; // Clear explanation div
+
+         const optionLetters = ['A', 'B', 'C', 'D'];
+        for (var i = 0; i < exam.questions[questionNumber].options.length; i++) {
+          const optionLetter = optionLetters[i];
+          const isChecked = i === exam.questions[questionNumber].answerPosition ? 'checked' : '';
+          optionDiv.innerHTML += `
+            <label class="radio-label" >
+                ${optionLetter}. 
+                <input class="correct" type="radio" disabled ${isChecked}/>
+                ${exam.questions[questionNumber].options[i]}
+            </label><br>`;
+        }
+
+        document.getElementById("questionIndex").innerText = "Question " + (questionNumber + 1);
+        const questionButtons = document.querySelectorAll("#questionsButton > button");
+        questionButtons.forEach(button => button.classList.remove("currentQuestion", "answeredQuestion"));
+
+        if (answers[questionNumber] !== -1) {
+          questionButtons[questionNumber].classList.add("answeredQuestion");
+        }
+        questionButtons[questionNumber].classList.add("currentQuestion");
+        currentQuestion = questionNumber;
+
+        displayExplanation(questionNumber);
+      }
+
+      function displayExplanation(questionNumber) {
+        const explanationDiv = document.getElementById("explanationDiv");
+        explanationDiv.innerHTML = exam.questions[questionNumber].explanation || '';
+      }
+
+      function selectAnswer(questionNumber, optionNumber) {
+          answers[questionNumber] = optionNumber;
+          document.querySelectorAll("#questionsButton > button")[questionNumber].classList.add("blueHightlight");
+      }
+
+      function prevQuestion() {
+          if (currentQuestion > 0) {
+              showQuestion(currentQuestion - 1);
+          }
+      }
+      
+      function nextQuestion() {
+          if (currentQuestion < exam.questions.length - 1) {
+              showQuestion(currentQuestion + 1);
+          }
+      }
+
+      function submitExam() {
+          var score = 0;
+          for (var i = 0; i < exam.questions.length; i++) {
+              if (answers[i] == exam.questions[i].answerPosition) {
+                  score++;
+              }
+          }
+          displayScore(score);
+          makeVisible("hiddenDiv");
+          window.location.href = "result.html?score=" + score;
+      }
+
+      function displayScore(score) {
+          var scoreDisplayDiv = document.getElementById("scoreDisplay");
+          scoreDisplayDiv.innerHTML = "Score: " + score + " / " + exam.questions.length;
+      }
+
+      function makeVisible(elementId) {
+            var element = document.getElementById(elementId);
+            element.style.display = "block";
+        }
+    startExam();
+
+    </script>
+</body>
+</html>

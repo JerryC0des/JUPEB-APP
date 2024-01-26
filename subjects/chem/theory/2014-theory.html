@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/subjects/questions.css">
+  <title>Result</title>
+</head>
+<body>
+
+  <!-- theory questions -->
+  <div class="theory-questions">
+    <h3>2015 BIOLOGY	ESSAY	QUESTIONS</h3>
+    <h4>ESSAY	QUESTIONS:	Answer	FOUR	Questions	in	all;	One	from	each	Course</h4>
+    <p class="time">TIME:	2HRS		</p>
+    <!-- questions -->
+    <div class="questions">
+
+    <div class="Q">
+      <p>
+        1 (a).State	6	differences	between	sexual	and	asexual	reproduction
+      </p>
+      <p class="mark">6 marks</p>
+
+
+      <p>
+        (b) Write	short	notes	on	any	2	of	the	following: 
+      </p>
+      <p class="subq">i. Haplontic life cycle</p>
+      <p class="subq">ii. Diplontic	life	cycle</p>
+      <p class="subq">iii. Haplodiplontic	life	cycle</p>
+      <p class="mark">4 marks</p>
+    </div>
+      
+
+      <p class="course">
+        BIO	001:	GEN	BIOLOGY
+      </p>
+    </div>
+
+  </div>
+
+
+  <script src="/js/chart.js"></script>
+  <script src="/js/questions.js"></script>
+  <script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const score = urlParams.get('score');
+
+    // Display the score on the page
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Your score is: ${score}/50`;
+
+    // Create a pie chart
+    var ctx = document.getElementById('resultChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Correct Answers', 'Incorrect Answers'],
+        datasets: [{
+          data: [score, 50 - score], 
+          backgroundColor: [
+            'rgba(0, 158, 0, 0.8)',
+            'rgba(255, 0, 0, 0.8)',
+          ],
+          borderColor: [
+            'rgba(0, 128, 0, 1)',
+            'rgba(255, 0, 0, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false, // Adjust as needed
+        maintainAspectRatio: false, // Adjust as needed
+      }
+    });
+  </script>
+</body>
+</html>

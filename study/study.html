@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAST QUESTIONS</title>
+  <link rel="stylesheet" href="/css/footer.css">
+<style>
+
+body {
+  background-image: url('/image/home-background.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  margin: 10px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.header {
+  display: flex;
+}
+.h3 {
+  flex-basis: 100;
+  flex-grow: 1;
+}
+.header img {
+  height: 40px;
+  margin: 0 0 0 10px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+h3 {
+  position: absolute;
+  right: 25%;
+}
+.pstq-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.subject {
+  width: 150px;
+  background-color: #3300ff;
+  margin: 10px;
+  flex-grow: 1;
+  flex-basis: 100;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  font-weight: bold;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 1em 0;  
+}
+
+p {
+  font-weight: bold;
+  color: rgb(37, 37, 15);
+  font-family: monospace;
+  font-size: 18px;
+  text-align: center;
+  margin: 10px;
+}
+.footer {
+  background-color: #3300ff;
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="img">
+      <img src="/image/go back.png" onclick="window.history.back();">
+    </div>
+    <div class="h3">
+      <h3> STUDY PAST QUESTIONS</h3> 
+    </div>
+  </div>
+  
+  <p>select subject</p>
+  <div class="pstq-container">
+    <div class="pstq-main">
+    </div>
+    <a href="/study/bio/bio.html"  class="subject">
+      <div>BIOLOGY</div>
+    </a>
+    <a href="/study/chem/chem.html"  class="subject">
+      <div>CHEMISTRY</div>
+    </a>
+    <a href="/study/maths/maths.html" class="subject">
+      <div>MATHEMATICS</div>
+    </a>
+    <a href="/study/phy/phy.html"  class="subject">
+      <div>PHYSICS</div>
+    </a>
+  </div>
+</div>  
+<div class="footer">
+  <a href="/home.html"><img class="home-button" src="/image/home-icon.png" alt=""></a>
+  <a href=""><img class="setting-button" src="/image/setting-icon.png" alt=""></a>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

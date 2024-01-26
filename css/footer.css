@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.footer {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+  background-color: #884912;
+  
+}
+.setting-button {
+  width: 30px;
+  margin: 10px;
+  left: 70%;
+  position: fixed;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+.home-button {
+  width: 30px;
+  margin: 10px 20%;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.year a {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: #000 !important;
+}
+a:visited	{
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+
+/* not for footer  */
+
+.correct-answer {
+  color: green;
+}
+
+.selected-answer {
+  color: red;
+}
